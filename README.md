@@ -1,5 +1,3 @@
-# Technical Writer Portfolio
-
 Welcome to my technical writing portfolio. This repository showcases my documentation skills through various knowledge base articles and guides.
 
 ## About Me
