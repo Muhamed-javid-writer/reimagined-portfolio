@@ -1,5 +1,8 @@
-   # User Onboarding Tutorial
-   
+---
+layout: default
+title: User Onboarding Tutorial
+---
+# User Onboarding Tutorial
    ## Welcome to Our Platform
    This tutorial will guide you through the essential steps to get started with our platform quickly and efficiently.
    
