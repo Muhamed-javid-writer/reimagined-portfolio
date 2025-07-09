@@ -118,4 +118,3 @@ title: User Onboarding Tutorial
    - Use the "Forgot Password" link on the login page
    - Check your email for reset instructions
    - Create a new strong password
-   ```
