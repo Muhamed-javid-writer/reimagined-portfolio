@@ -1,3 +1,7 @@
+---
+layout: default
+title: Troubleshooting Guide
+---
    # Troubleshooting Guide
    
    ## Overview
