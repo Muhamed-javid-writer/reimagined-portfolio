@@ -102,11 +102,10 @@ print(response.json())
 
 ## Error Handling
 ### Common Error Codes
-
-`400 Bad Request`: Invalid request parameters
-`401 Unauthorized`: Invalid or missing API key
-`404 Not Found`: Resource not found
-`500 Internal Server Error`: Server error
+- `400 Bad Request`: Invalid request parameters
+- `401 Unauthorized`: Invalid or missing API key
+- `404 Not Found`: Resource not found
+- `500 Internal Server Error`: Server error
 
 ### Error Response Format
 ``` json{
