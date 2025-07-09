@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamed Javid - Technical Writer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+            grid-template-rows: 70px 1fr;
+            grid-template-areas:
+                "header header header"
+                "sidebar main aside";
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        .header {
+            grid-area: header;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .header nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header nav a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .header nav a:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            transform: translateY(-1px);
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            grid-area: sidebar;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem 0;
+            overflow-y: auto;
+            position: sticky;
+            top: 70px;
+            height: calc(100vh - 70px);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .sidebar-section h3 {
+            color: #2d3748;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            font-weight: 600;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-list a {
+            color: #4a5568;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-list a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .nav-list a.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content Area */
+        .main {
+            grid-area: main;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .content-section {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: #2d3748;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .content-section h3 {
+            color: #4a5568;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .skill-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .articles-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-left-color: #764ba2;
+        }
+
+        .article-card h4 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .article-card p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .article-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .article-card a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* Right Sidebar */
+        .aside {
+            grid-area: aside;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            position: sticky;
+            top: 70px;
+            height: calc(100vh - 70px);
+        }
+
+        .widget {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .widget:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .widget h4 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(3px);
+        }
+
+        .contact-item a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: #667eea;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .recent-activity {
+            list-style: none;
+        }
+
+        .recent-activity li {
+            padding: 0.75rem;
+            border-left: 3px solid #e2e8f0;
+            margin-bottom: 0.5rem;
+            background: rgba(102, 126, 234, 0.02);
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .recent-activity li:hover {
+            border-left-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .recent-activity .activity-title {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .recent-activity .activity-date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 250px 1fr;
+                grid-template-areas:
+                    "header header"
+                    "sidebar main";
+            }
+
+            .aside {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main";
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .header {
+                padding: 0 1rem;
+            }
+
+            .header .brand {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .header h1 {
+                font-size: 1.2rem;
+            }
+
+            .header nav {
+                gap: 1rem;
+            }
+
+            .main {
+                padding: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <div class="avatar">MJ</div>
+                <div>
+                    <h1>Muhamed Javid</h1>
+                    <div class="subtitle">Technical Writer</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Navigation</h3>
+                <ul class="nav-list">
+                    <li><a href="#about" class="active"><span class="nav-icon">👋</span>About Me</a></li>
+                    <li><a href="#skills"><span class="nav-icon">💡</span>Skills</a></li>
+                    <li><a href="#portfolio"><span class="nav-icon">📚</span>Portfolio</a></li>
+                    <li><a href="#articles"><span class="nav-icon">📝</span>Articles</a></li>
+                    <li><a href="#contact"><span class="nav-icon">📞</span>Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Documentation Types</h3>
+                <ul class="nav-list">
+                    <li><a href="#api-docs"><span class="nav-icon">🔧</span>API Docs</a></li>
+                    <li><a href="#user-guides"><span class="nav-icon">📖</span>User Guides</a></li>
+                    <li><a href="#tutorials"><span class="nav-icon">🎓</span>Tutorials</a></li>
+                    <li><a href="#troubleshooting"><span class="nav-icon">🔧</span>Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Quick Links</h3>
+                <ul class="nav-list">
+                    <li><a href="https://github.com/muhamed-javid-writer/tech-writing-portfolio" target="_blank"><span class="nav-icon">💻</span>GitHub</a></li>
+                    <li><a href="#resume"><span class="nav-icon">📄</span>Resume</a></li>
+                    <li><a href="#blog"><span class="nav-icon">✍️</span>Blog</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="content-section fade-in-up" id="about">
+                <h2>Welcome to My Technical Writing Portfolio</h2>
+                <p>This repository showcases my documentation skills through various knowledge base articles and guides. I am a technical writer with expertise in creating clear, user-friendly documentation that helps users achieve their goals efficiently.</p>
+                <p>My approach to technical writing focuses on understanding the user's journey and creating documentation that is not only accurate but also accessible and actionable. I believe that great documentation bridges the gap between complex technical concepts and practical implementation.</p>
+            </div>
+
+            <div class="content-section fade-in-up" id="skills">
+                <h3>Core Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h4>📝 Technical Documentation</h4>
+                        <p>Creating comprehensive technical documentation that transforms complex information into clear, actionable content.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>🔧 API Documentation</h4>
+                        <p>Designing and writing API documentation with examples, authentication methods, and error handling.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>📚 User Guides & Tutorials</h4>
+                        <p>Developing step-by-step guides and tutorials that enable users to accomplish their goals efficiently.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>💡 Knowledge Base Management</h4>
+                        <p>Organizing and maintaining knowledge bases that provide quick access to relevant information.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>📐 Information Architecture</h4>
+                        <p>Structuring content in logical, user-friendly ways that enhance discoverability and usability.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>⚙️ Tools & Technologies</h4>
+                        <p>Markdown, Git, version control, documentation platforms, and modern writing tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section fade-in-up" id="portfolio">
+                <h3>Featured Documentation Projects</h3>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <h4>🔧 API Documentation Guide</h4>
+                        <p>A comprehensive guide for creating effective API documentation with practical examples, authentication methods, and error handling best practices.</p>
+                        <a href="knowledge-base/api-documentation-guide">Read More →</a>
+                    </div>
+                    <div class="article-card">
+                        <h4>🎓 User Onboarding Tutorial</h4>
+                        <p>Step-by-step onboarding process for new users, covering account setup, profile configuration, and key features with visual aids.</p>
+                        <a href="knowledge-base/user-onboarding-tutorial">Read More →</a>
+                    </div>
+                    <div class="article-card">
+                        <h4>🔧 Troubleshooting Guide</h4>
+                        <p>Common issues and their solutions, including login problems, performance issues, and file upload troubles with detailed resolution steps.</p>
+                        <a href="knowledge-base/troubleshooting-guide">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section fade-in-up">
+                <h3>Portfolio Features</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h4>📖 Comprehensive Documentation</h4>
+                        <p>Each article follows industry best practices for technical writing with clear structure and logical flow.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>🔍 Clear Structure</h4>
+                        <p>Well-organized content with table of contents, cross-references, and intuitive navigation.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>💡 Practical Examples</h4>
+                        <p>Real-world code examples and step-by-step instructions that users can follow immediately.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>🎯 User-Focused</h4>
+                        <p>Content designed from the user's perspective, addressing real pain points and use cases.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="aside">
+            <div class="widget">
+                <h4>📊 Portfolio Stats</h4>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Articles</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5K+</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Response</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h4>📞 Contact Information</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:your.email@example.com">your.email@example.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <a href="#" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <a href="#" target="_blank">Portfolio Website</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>💻</span>
+                        <a href="https://github.com/muhamed-javid-writer" target="_blank">GitHub Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h4>🔄 Recent Activity</h4>
+                <ul class="recent-activity">
+                    <li>
+                        <div class="activity-title">Updated API Guide</div>
+                        <div class="activity-date">2 days ago</div>
+                    </li>
+                    <li>
+                        <div class="activity-title">New Tutorial Added</div>
+                        <div class="activity-date">1 week ago</div>
+                    </li>
+                    <li>
+                        <div class="activity-title">Troubleshooting Update</div>
+                        <div class="activity-date">2 weeks ago</div>
+                    </li>
+                    <li>
+                        <div class="activity-title">Portfolio Launch</div>
+                        <div class="activity-date">1 month ago</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h4>🏷️ Documentation Types</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>🔧</span>
+                        <span>API Documentation</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📖</span>
+                        <span>User Guides</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🎓</span>
+                        <span>Tutorials</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🔧</span>
+                        <span>Troubleshooting</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation state
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-list a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Mobile menu toggle (if needed)
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('mobile-open');
+        }
+
+        // Add mobile menu styles
+        const mobileStyles = `
+            @media (max-width: 768px) {
+                .sidebar.mobile-open {
+                    position: fixed;
+                    top: 70px;
+                    left: 0;
+                    width: 280px;
+                    height: calc(100vh - 70px);
+                    z-index: 999;
+                    display: block;
+                    transform: translateX(0);
+                }
+                
+                .sidebar {
+                    transform: translateX(-100%);
+                    transition: transform 0.3s ease;
+                }
+            }
+        `;
+
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = mobileStyles;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
