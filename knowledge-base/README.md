@@ -1,3 +1,7 @@
+---
+layout: default
+title: Knowledge Base
+---
 # Knowledge Base
 
 This section contains technical documentation articles demonstrating various documentation styles and approaches.
