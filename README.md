@@ -15,7 +15,7 @@ I am a technical writer with expertise in creating clear, user-friendly document
 
 ## Knowledge Base Articles
 
-### 📚 [Knowledge Base Category](knowledge-base/README)
+### 📚 [Knowledge Base Category](knowledge-base/)
 
 #### [API Documentation Guide](knowledge-base/api-documentation-guide)
 Complete guide for creating comprehensive API documentation with examples, authentication methods, and error handling.
