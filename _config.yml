@@ -1,0 +1,46 @@
+# Site settings
+title: Technical Writer Portfolio
+description: Documentation & Knowledge Base Specialist
+url: "https://muhamed-javid-writer.github.io"
+baseurl: "/reimagined-portfolio"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: 
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Markdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Navigation
+navigation:
+  - name: Home
+    link: /
+  - name: About
+    link: /about
+  - name: Knowledge Base
+    link: /knowledge-base
+  - name: Contact
+    link: /contact
+
+# Knowledge Base articles
+knowledge_base_articles:
+  - title: API Documentation Guide
+    link: /knowledge-base/api-documentation-guide
+    description: Comprehensive guide for documenting APIs
+  - title: User Onboarding Tutorial
+    link: /knowledge-base/user-onboarding-tutorial
+    description: Step-by-step user onboarding process
+  - title: Troubleshooting Guide
+    link: /knowledge-base/troubleshooting-guide
+    description: Common issues and solutions
