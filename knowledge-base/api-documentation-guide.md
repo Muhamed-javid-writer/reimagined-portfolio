@@ -1,3 +1,7 @@
+---
+layout: default
+title: API Documentation Guide
+---
 # API Documentation Guide
 
 ## Overview
