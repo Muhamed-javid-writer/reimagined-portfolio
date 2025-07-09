@@ -68,7 +68,7 @@ Request Body:
 }
 ```
 ## Code Examples
-``` JavaScript (Node.js)
+``` JavaScript
 javascriptconst axios = require('axios');
 
 const config = {
@@ -88,7 +88,8 @@ axios.get('https://api.example.com/v1/users', config)
 ```
 
 Python
-``` pythonimport requests
+``` python
+import requests
 
 headers = {
     'Authorization': 'Bearer YOUR_API_KEY',
