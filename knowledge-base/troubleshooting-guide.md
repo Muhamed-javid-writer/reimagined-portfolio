@@ -187,4 +187,3 @@ title: Troubleshooting Guide
    - **Security email**: security@platform.com
    - **Report immediately** - don't wait
    - **Include all relevant details**
-   ```
