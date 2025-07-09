@@ -17,13 +17,13 @@ I am a technical writer with expertise in creating clear, user-friendly document
 
 ### 📚 [Knowledge Base Category](knowledge-base/)
 
-#### [API Documentation Guide](knowledge-base/api-documentation-guide.md)
+#### [API Documentation Guide](knowledge-base/api-documentation-guide)
 Complete guide for creating comprehensive API documentation with examples, authentication methods, and error handling.
 
-#### [User Onboarding Tutorial](knowledge-base/user-onboarding-tutorial.md)
+#### [User Onboarding Tutorial](knowledge-base/user-onboarding-tutorial)
 Step-by-step onboarding process for new users, covering account setup, profile configuration, and key features.
 
-#### [Troubleshooting Guide](knowledge-base/troubleshooting-guide.md)
+#### [Troubleshooting Guide](knowledge-base/troubleshooting-guide)
 Common issues and their solutions, including login problems, performance issues, and file upload troubles.
 
 ## Portfolio Features
